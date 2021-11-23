@@ -17,6 +17,10 @@ library(car)
 mydata <- read.csv(file = "Fish.csv")
 perch <- filter(mydata, Species == "Perch")
 perch <- select(perch, -Species)
+pike <- filter(mydata, Species == "Pike")
+pike <- select(pike, -Species)
+roach <- filter(mydata, Species == "Roach")
+roach <- select(roach, -Species)
 ```
 
 # Introduction
@@ -33,7 +37,6 @@ In this report, we are given data that describes the different characteristics o
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-
 #Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
@@ -44,9 +47,81 @@ In this report, we are given data that describes the different characteristics o
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+First, a data set named "perch" was created that includes 6 different numerical variables: Weight, Length1, Length2, Length3, Height, and Width.
+
+A function was then called to run the different combinations of the variables and assort them in order of greatest to least R-Squared value on a 2-dimensional graph.
+
+```{r}
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = perch,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
+```
+
+This data can be further verified. The following function indicates which combination yielded the greatest R-squared value, and the second function indicated which variables were used in that data set.
+
+```{r}
+which.max(summary.out$adjr2)
+summary.out$which[2,]
+```
+
+This experiment is repeated with Pike and Roach, in that order.
+
+```{r}
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = pike,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
+```
+
+```{r}
+which.max(summary.out$adjr2)
+summary.out$which[5,]
+```
+
+```{r}
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = roach,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
+```
+
+```{r}
+which.max(summary.out$adjr2)
+summary.out$which[2,]
+```
+
+Graphically, these show that Length1, Length2, Length3, Width, and Height yield the greatest R-squared for Pike, and Length3 and Width yield the greatest R-squared for Roach.
+
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+
 
 ## Inferential Results
 
