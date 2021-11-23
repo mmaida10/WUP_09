@@ -64,7 +64,6 @@ regsubsets.out <-
 
 summary.out <- summary(regsubsets.out)
 as.data.frame(summary.out$outmat)
-library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
 
@@ -88,7 +87,6 @@ regsubsets.out <-
 
 summary.out <- summary(regsubsets.out)
 as.data.frame(summary.out$outmat)
-library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
 
@@ -108,7 +106,6 @@ regsubsets.out <-
 
 summary.out <- summary(regsubsets.out)
 as.data.frame(summary.out$outmat)
-library(car)
 subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
 ```
 
