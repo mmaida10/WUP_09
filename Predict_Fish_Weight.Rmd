@@ -158,3 +158,4 @@ The hypothesis stated that we can use 2 predictor variables to predict the weigh
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
+We reject the null hypothesis; Height and Width succeeded greatly in predicting the weight of the Perch. Similarly, the predictor values of Length1, Length2, Length3, Width, and Height could predict the weight of the Pike while the Length3 and Width could predict the weight of the Roach, albeit to a lesser degree. The common variable between the three is Width, which makes intuitive sense; the larger a creature is, the more fat is stored on the side to make it wider. 
