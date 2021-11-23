@@ -121,7 +121,32 @@ Graphically, these show that Length1, Length2, Length3, Width, and Height yield 
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+A summary function is called for the Perch.
 
+```{r}
+best.model <- lm(Weight~Height+Width,data=perch)
+summary(best.model)
+```
+
+This indicates that the greatest adjusted R-squared achievable is 0.94 with Height and Width.
+
+A summary function is called for the Pike.
+
+```{r}
+best.model2 <- lm(Weight~Length1+Length2+Length3+Width+Height, data=pike)
+summary(best.model2)
+```
+
+This indicates that the greatest adjusted R-squared achievable is 0.98 with all 5 variables: Length1, Length2, Length3, width, and height.
+
+Finally, a summary function is called for the Roach.
+
+```{r}
+best.model3 <- lm(Weight~Length3+Width, data=roach)
+summary(best.model3)
+```
+
+This shows that the greatest adjusted R-squared achievable is 0.85 by using Length3 + Width.
 
 ## Inferential Results
 
