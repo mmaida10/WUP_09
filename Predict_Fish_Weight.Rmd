@@ -37,7 +37,9 @@ In this report, we are given data that describes the different characteristics o
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-#Results
+To conduct graphical analysis, and adjusted R-square graph (AdjR^2) was created. This illustrated which combinations of variables resulted in the greatest adjusted R-squared value. Next, summary functions were called to show the numerical descriptive analysis, including the p-values and Adjusted R-squared values.
+
+# Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
